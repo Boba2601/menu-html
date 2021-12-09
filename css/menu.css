@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins' sans-serif;
+}
+
+:root {
+	--clr: #222337;
+}
+
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	background: var(--clr);
+}
+/* Меню рамка */
+.navigation {
+	width: 250px;
+	height: 100%;
+	background: white;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+}
+/* Растояние между вкладками меню */
+.navigation ul {
+	display: flex;
+	width: px;
+}
+/* Вертикальное расположение вкладок меню */
+.navigation ul li {
+	position: relative;
+	list-style: none;
+	width: 65px;
+	height: 70px;
+	z-index: 1;
+}
+/* Горизонтальное расположение вкладок меню */
+.navigation ul li a {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	width: 100%;
+	text-align: center;
+	font-weight: 500;
+}
+/* Иконка */
+.navigation ul li a .icon {
+	position: relative;
+	display: block;
+	line-height: 75px;
+	font-size: 1.5em;
+	text-align: center;
+	transition: 0.5s;
+	color: var(--clr);
+}
+/* Высота иконки в кругу */
+.navigation ul li.active a .icon {
+	transform: translateY(-34px);
+}
+/* Текст под иконкой анимация */
+.navigation ul li a .text {
+	position: absolute;
+	color: var(--clr);
+	font-weight: 400;
+	font-size: 0.75em;
+	letter-spacing: 0.05em;
+	transition: 0.5s;
+	opacity: 0;
+	transform: translateY(20px);
+}
+/* Текст когда иконка верху */
+.navigation ul li.active a .text {
+	opacity: 1;
+	transform: translateY(10px);
+}
+/* Круг */
+.indicator {
+	position: absolute;
+	top: -50%;
+	width: 65px;
+	height: 65px;
+	background: chartreuse;
+	border-radius: 50%;
+	border: 6px solid var(--clr);
+	transition: 0.5s;
+}
+/* Скругление рамки лево */
+.indicator:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: -20px;
+	width: 19px;
+	height: 20px;
+	background: transparent;
+	border-top-right-radius: 20px;
+	box-shadow: 1px -5px 0 0 var(--clr);
+}
+/* Скругление рамки право */
+.indicator:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: -22px;
+	width: 21px;
+	height: 20px;
+	background: transparent;
+	border-top-left-radius: 20px;
+	box-shadow: -1px -10px 0 0 var(--clr);
+}
+/* Анимация 1 меню */
+.navigation ul li:nth-child(1).active ~ .indicator {
+	transform: translateX(calc(60px * 0));
+}
+/* Анимация 2 меню */
+.navigation ul li:nth-child(2).active ~ .indicator {
+	transform: translateX(calc(65px * 1));
+}
+/* Анимация 3 меню */
+.navigation ul li:nth-child(3).active ~ .indicator {
+	transform: translateX(calc(65px * 2));
+}
